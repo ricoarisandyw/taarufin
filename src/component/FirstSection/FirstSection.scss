@@ -1,0 +1,180 @@
+@font-face {
+    font-family: Skia;
+    src: url("../../assets/fonts/Skia.ttf");
+}
+
+.FirstSection {
+    background-image: url('../../assets/images/sky_moon.png');
+    background-size: cover;
+    height: 40em;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    color:white;
+}
+
+.Logo {
+    animation: 3s ease 0s 1 fadeIn;
+    font-family: Skia;
+    font-weight: bold;
+
+    img {
+        width: 15%;
+    }
+}
+
+.Desert {
+    position: absolute;
+    width: 103%;
+    transform: translateX(-1em) translateY(1em);
+    bottom: 0;
+    z-index: 15;
+}
+
+@keyframes Man {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+}
+
+.Man {
+    animation: 1.2s ease-out 0s 1 Man;
+    position: absolute;
+    left:0;
+    bottom: 6.5em;
+    z-index: 5;
+}
+
+@keyframes Woman {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+}
+
+.Woman {
+    animation: 1.5s ease-out 0s 1 Woman;
+    position: absolute;
+    right: 0;
+    bottom: 6.5em;
+    z-index: 5;
+}
+
+.LeftCloud {
+    animation: 1.5s ease-out 0s 1 Man;
+    position: absolute;
+    left:0;
+    bottom: 1.5em;
+    z-index: 5;
+}
+
+.RightCloud {
+    animation: 1.8s ease-out 0s 1 Woman;
+    position: absolute;
+    right: 0;
+    bottom: 2em;
+    z-index: 5;
+}
+
+// Animation
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: .3s ease 0s 1 fadeIn;
+}
+
+@keyframes flyFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+}
+
+.flyFromLeft {
+    animation: .5s ease 0s 1 flyFromLeft;
+}
+
+@keyframes flyFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+}
+
+.flyFromLeft {
+    animation: .5s ease 0s 1 flyFromLeft;
+}
+
+@keyframes flyFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+}
+
+.flyFromBottom {
+    animation: .3s ease 0s 1 flyFromBottom;
+}
+
+@keyframes flyFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+}
+
+.flyFromTop {
+    animation: .3s ease 0s 1 flyFromTop;
+}
+
+.delay-animation-list {
+  @for $i from 1 through 100 {
+    li:nth-child(#{$i}) {
+      animation-duration: ($i * 0.3s);
+    }
+
+    tr:nth-child(#{$i}) {
+      animation-duration: ($i * 0.3s);
+    }
+  }
+}

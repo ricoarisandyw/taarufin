@@ -1,0 +1,36 @@
+@font-face {
+    font-family: Bowlist;
+    src: url('../../assets/fonts/Bowlist.ttf');
+}
+
+@font-face {
+    font-family: Skia;
+    src: url("../../assets/fonts/Skia.ttf");
+}
+
+.InfoSection {
+    background: #F6D798;
+
+    h1 {
+        font-family: Bowlist;
+    }
+
+    h3 {
+        font-family: Skia;
+        font-size: 1.4em;
+        padding:1em;
+    }
+
+    .ZoomHover {
+        &:hover {
+            transform: scaleX(110%) scaleY(110%);
+        }
+    }
+}
+
+.circled {
+    border-radius: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 200px;
+}
