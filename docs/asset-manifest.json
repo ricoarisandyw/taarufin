@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dfbeb125.chunk.css",
+    "main.js": "/static/js/main.b0a7a86b.chunk.js",
+    "main.js.map": "/static/js/main.b0a7a86b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.78599acf.js",
+    "runtime-main.js.map": "/static/js/runtime-main.78599acf.js.map",
+    "static/js/2.d7836c9b.chunk.js": "/static/js/2.d7836c9b.chunk.js",
+    "static/js/2.d7836c9b.chunk.js.map": "/static/js/2.d7836c9b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3bc7e7e6dbdc6c95b5984933bad603ff.js": "/precache-manifest.3bc7e7e6dbdc6c95b5984933bad603ff.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.dfbeb125.chunk.css.map": "/static/css/main.dfbeb125.chunk.css.map",
+    "static/js/2.d7836c9b.chunk.js.LICENSE.txt": "/static/js/2.d7836c9b.chunk.js.LICENSE.txt",
+    "static/media/InfoSection.scss": "/static/media/Skia.dbe42a12.ttf",
+    "static/media/cv.png": "/static/media/cv.79c510dd.png",
+    "static/media/desert.png": "/static/media/desert.878b1f27.png",
+    "static/media/logo.png": "/static/media/logo.f787f510.png",
+    "static/media/man.png": "/static/media/man.fd49b3ce.png",
+    "static/media/register.png": "/static/media/register.14984783.png",
+    "static/media/FirstSection.scss": "/static/media/sky_moon.da403709.png",
+    "static/media/woman.png": "/static/media/woman.0bf378d1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.78599acf.js",
+    "static/js/2.d7836c9b.chunk.js",
+    "static/css/main.dfbeb125.chunk.css",
+    "static/js/main.b0a7a86b.chunk.js"
+  ]
+}
