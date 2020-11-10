@@ -1,0 +1,35 @@
+.MatchingPage {
+    .CardList {
+        display: flex;
+        position: relative;
+        min-height: 20rem;
+
+        .CardDetail {
+            color: white;
+        }
+
+        .MatchingCard {
+            transition: .5s all ease;
+        }
+
+        .MatchingCard:nth-child(1) {
+            opacity: 70%;
+            transform: scale(.8);
+
+            &:hover {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .MatchingCard:nth-child(3) {
+            opacity: 80%;
+            transform: scale(.8);
+
+            &:hover {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+}

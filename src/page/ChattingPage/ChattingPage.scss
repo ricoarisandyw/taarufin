@@ -1,0 +1,54 @@
+.ChattingPage {
+    .ChatRoomHeader {
+        color: white;
+    }
+
+    .ChatSearch {
+        border-bottom: 1px solid silver;
+    }
+
+    .ChatRoom {
+        height:65vh;
+        overflow-y: scroll;
+        margin-bottom: 56px;
+
+        .ChatBubble {
+            width: fit-content;
+            padding: 0.5em;
+            padding-left: 1em;
+            padding-right: 1em;
+            border-radius: 3em;
+
+            &.sender {
+                margin-right: auto;
+                background: greenyellow;
+                border-top-left-radius: 0;
+            }
+
+            &.receiver {
+                margin-left: auto;
+                background: skyblue;
+                border-top-right-radius: 0;
+            }
+        }
+    }
+
+    .ChatInput {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background: white;
+        display: flex;
+
+        input {
+            flex: 1;
+            border: none;
+            background: none;
+            width: 100%;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.MatchingCard {
+    display: flex;
+    height: 300px;
+    width: 300px;
+    border-radius: 50px;
+    background-color: pink;
+    position: relative;
+    left: 0;
+    overflow: hidden;
+
+    &.CardSelected {
+        position: absolute;
+        left: 0;
+    }
+
+    .BottomCard {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        .CardHighlight {
+            button {
+                font-size: .75rem;
+                font-family: Skia;
+            }
+        }
+    
+        .MatchingToolbar {
+            display: flex;
+            height: 3.5rem;
+            justify-content: space-around;
+            background: pink;
+    
+            svg {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .CardName {
+        position: absolute;
+    }
+
+    .CardPhoto {
+        img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .Heart {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        margin-top: -2rem;
+    }
+}

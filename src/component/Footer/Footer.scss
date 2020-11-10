@@ -1,0 +1,18 @@
+footer {
+    width: 100%;
+    background: #313030;
+    color: white;
+
+    ul.list-no-style {
+        padding-left: 0px;
+
+        li {
+            list-style: none;
+
+            &:hover {
+                cursor: pointer;
+                color: silver;
+            }
+        }
+    }
+}

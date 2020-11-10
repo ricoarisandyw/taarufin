@@ -3,3 +3,73 @@
 .App {
     overflow: hidden;
 }
+
+@font-face {
+    font-family: Playfair;
+    src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+body {
+    font-family: Playfair;
+}
+
+.font-heading {
+    font-family: Skia;
+}
+
+.font-skia {
+    font-family: Skia;
+}
+
+.font-playfair {
+    font-family: Playfair;
+}
+
+.font-bowlist {
+    font-family: Bowlist;
+}
+
+.bg-sand {
+    background: #F6D798;
+}
+
+.bg-pink {
+    background: #E97AEF;
+}
+
+.bg-pink-dark {
+    background: #CA4F73;
+}
+
+.bg-blue {
+    background:#51B8D8;
+}
+
+.bg-sky {
+    background: url('./assets/images/sky.png');
+    background-size: cover;
+}
+
+.btn-circled {
+    border-radius: 50rem;
+    padding: 0.25rem 2rem;
+}
+
+.btn-circled-small {
+    border-radius: 50rem;
+    padding: .25rem .5rem;
+}
+
+.radius-max {
+    border-radius: 100%;
+}
+
+.scale-0 {
+    transform: scale(0) !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.justify-content-space-around {
+    justify-content: space-around !important;
+}

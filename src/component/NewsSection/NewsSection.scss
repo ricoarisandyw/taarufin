@@ -1,0 +1,23 @@
+.NewsSection {
+    h1 {
+        font-family: Bowlist;
+    }
+}
+
+.NewsBox {
+    .NewsThumbnail {
+        width: 1000px;
+        position: relative;
+
+        img {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        p {
+            max-height: 70px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

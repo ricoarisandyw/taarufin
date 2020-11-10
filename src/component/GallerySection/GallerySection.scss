@@ -1,0 +1,11 @@
+.GallerySection {
+    h1 {
+        font-family: Bowlist;
+    }
+    
+    .ImageList {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
