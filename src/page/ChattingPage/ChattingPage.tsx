@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ChattingPage.scss'
 import ContactBox from '../../component/ContactBox/ContactBox'
 import {MdArrowBack} from 'react-icons/md'
 import {BsSearch} from 'react-icons/bs'
-import {AiOutlineSend} from 'react-icons/ai'
+import {AiOutlineSend, AiOutlineExclamationCircle} from 'react-icons/ai'
 
 const ChattingPage: React.FC = () => {
+    const [showMenu, setShowMenu] = useState(false)
+
     return (
         <div className="ChattingPage row">
             <div className="LeftSide col-lg-3 pr-0 shadow">
@@ -26,6 +28,14 @@ const ChattingPage: React.FC = () => {
                         <MdArrowBack size="1.5em" />
                     </div>
                     <h3 className="mt-auto mb-auto">Putri</h3>
+                    <div className="mt-auto mb-auto ml-auto float-right cursor-pointer" onClick={() => setShowMenu(!showMenu)}>
+                        <AiOutlineExclamationCircle size="1.5em" />
+                    </div>
+                    <div className={["Menu shadow",showMenu? "": "d-none"].join(' ')}>
+                        <div className="MenuItem">Mock</div>
+                        <div className="MenuItem">Not Active</div>
+                        <div className="MenuItem">Bad Word</div>
+                    </div>
                 </div>
                 <div className="ChatRoom p-3">
                 <div className="ChatBubble sender">
