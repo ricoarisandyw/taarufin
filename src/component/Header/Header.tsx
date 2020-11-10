@@ -15,6 +15,7 @@ const Header: React.FC = () => {
                 <ul className="header-menu">
                     <li><Link to={Pages.Home}>Home</Link></li>
                     <li>About Us</li>
+                    <li><Link to={Pages.Match}>Find Match</Link></li>
                     <li><Link to={Pages.Profile}>Profile</Link></li>
                     <li><Link to={Pages.Login}>Login</Link></li>
                 </ul>

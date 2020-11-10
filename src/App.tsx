@@ -12,11 +12,13 @@ import Footer from './component/Footer/Footer';
 import ChattingPage from './page/ChattingPage/ChattingPage';
 import LoginPage from './page/LoginPage/LoginPage';
 import ProfilePage from './page/ProfilePage/ProfilePage';
+import ChatWidget from './component/ChatWidget/ChatWidget';
 
 const App:React.FC = () => {
   return (
     <BrowserRouter>
       <div className="container-fluid p-0 App">
+        <ChatWidget />
         <div className="row">
           <div className="col-lg-12">
             <Header />
