@@ -37,6 +37,8 @@ const ChattingPage: React.FC = () => {
         setInputMessage('')
     }
 
+    const sorByCreatedAt = (messageNow: any, messageNext: any) => new Date(messageNow.created_at).getTime() - new Date(messageNext.created_at).getTime()
+
     return (
         <div className="ChattingPage row">
             <div className="LeftSide col-lg-3 pr-0 shadow">
@@ -68,7 +70,7 @@ const ChattingPage: React.FC = () => {
                 </div>
                 <div className="ChatRoom p-3">
                     {
-                        messages?.reverse().map((message: any) => (
+                        messages?.sort(sorByCreatedAt).map((message: any) => (
                             <div className={["ChatBubble mb-3",message.sender === user.email ? "sender" : "receiver"].join(' ')}>
                                 <small>{message.sender}</small>
                                 <div>
