@@ -4,9 +4,38 @@ import ContactBox from '../../component/ContactBox/ContactBox'
 import {MdArrowBack} from 'react-icons/md'
 import {BsSearch} from 'react-icons/bs'
 import {AiOutlineSend, AiOutlineExclamationCircle} from 'react-icons/ai'
+import Firebase from '../../component/Firebase/Firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/analytics'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import FirebaseConfig from '../../services/firebase/FirebaseConfig'
+
+firebase.initializeApp(FirebaseConfig)
+
+const auth = firebase.auth()
+const firestore = firebase.firestore();
 
 const ChattingPage: React.FC = () => {
+    const [user] = useAuthState(auth);
     const [showMenu, setShowMenu] = useState(false)
+    const messagesRef = firestore.collection('taaruf');
+    const query = messagesRef.limit(100)
+    const [messages] = useCollectionData(query)
+
+    const [inputMessage, setInputMessage] = useState("")
+
+    const handleSubmit = () => {
+        console.log("Submit")
+        messagesRef.add({
+            sender: user.email,
+            message: inputMessage,
+            created_at: new Date().toString()
+        })
+        setInputMessage('')
+    }
 
     return (
         <div className="ChattingPage row">
@@ -27,7 +56,7 @@ const ChattingPage: React.FC = () => {
                     <div className="mt-auto mb-auto mr-3">
                         <MdArrowBack size="1.5em" />
                     </div>
-                    <h3 className="mt-auto mb-auto">Putri</h3>
+                    <h3 className="mt-auto mb-auto">{user ? user.displayName : "..."}</h3>
                     <div className="mt-auto mb-auto ml-auto float-right cursor-pointer" onClick={() => setShowMenu(!showMenu)}>
                         <AiOutlineExclamationCircle size="1.5em" />
                     </div>
@@ -38,52 +67,20 @@ const ChattingPage: React.FC = () => {
                     </div>
                 </div>
                 <div className="ChatRoom p-3">
-                <div className="ChatBubble sender">
-                        Hello
-                    </div>
-                    <div className="ChatBubble receiver">
-                        World
-                    </div>
-                    <div className="ChatBubble sender">
-                        Hello
-                    </div>
-                    <div className="ChatBubble receiver">
-                        World
-                    </div>
-                    <div className="ChatBubble sender">
-                        Hello
-                    </div>
-                    <div className="ChatBubble receiver">
-                        World
-                    </div>
-                    <div className="ChatBubble sender">
-                        Hello
-                    </div>
-                    <div className="ChatBubble receiver">
-                        World
-                    </div>
-                    <div className="ChatBubble sender">
-                        Hello
-                    </div>
-                    <div className="ChatBubble receiver">
-                        World
-                    </div>
-                    <div className="ChatBubble sender">
-                        Hello
-                    </div>
-                    <div className="ChatBubble receiver">
-                        World
-                    </div>
-                    <div className="ChatBubble sender">
-                        Hello
-                    </div>
-                    <div className="ChatBubble receiver">
-                        World
-                    </div>
+                    {
+                        messages?.reverse().map((message: any) => (
+                            <div className={["ChatBubble mb-3",message.sender === user.email ? "sender" : "receiver"].join(' ')}>
+                                <small>{message.sender}</small>
+                                <div>
+                                    {message.message}
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
                 <div className="ChatInput p-3 shadow">
-                    <input placeholder="Input here ..." />
-                    <div className="float-right mr-3">
+                    <input value={inputMessage} placeholder="Input here ..." onChange={(event) => setInputMessage(event.target.value)} />
+                    <div className="float-right mr-3 cursor-pointer" onClick={handleSubmit}>
                         <AiOutlineSend />
                     </div>
                 </div>
