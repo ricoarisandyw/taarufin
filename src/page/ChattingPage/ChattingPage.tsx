@@ -17,7 +17,7 @@ import { FirebaseState } from '../../redux/reducers/FirebaseReducers'
 const ChattingPage: React.FC = () => {
     const {firestore, auth} = useSelector<RootState, FirebaseState>((state)=>state.firebase)
 
-    const [user] = auth ? useAuthState(auth) : [{email:"not logged in"}];
+    const [user] = useAuthState(auth)
     const [showMenu, setShowMenu] = useState(false)
     const messagesRef = firestore?.collection('taaruf')
     const query = messagesRef?.limit(100)
@@ -71,7 +71,7 @@ const ChattingPage: React.FC = () => {
                     <div className="ChatRoom p-3">
                         {
                             messages ? messages?.sort(sorByCreatedAt).map((message: any) => (
-                                <div className={["ChatBubble mb-3",message.sender === user.email ? "sender" : "receiver"].join(' ')}>
+                                <div className={["ChatBubble mb-3",user && message.sender === user.email ? "sender" : "receiver"].join(' ')}>
                                     <small>{message.sender}</small>
                                     <div>
                                         {message.message}
