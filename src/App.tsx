@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 import {hot} from 'react-hot-loader/root';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
@@ -14,7 +14,31 @@ import LoginPage from './page/LoginPage/LoginPage';
 import ProfilePage from './page/ProfilePage/ProfilePage';
 import ChatWidget from './component/ChatWidget/ChatWidget';
 
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/analytics'
+import FirebaseConfig from './services/firebase/FirebaseConfig';
+import { useDispatch } from 'react-redux';
+import { updateAuth, updateFirestore } from './redux/actions/FirebaseActions';
+
+firebase.initializeApp(FirebaseConfig)
+
+const auth = firebase.auth()
+const firestore = firebase.firestore();
+
+console.log("Firebase", auth, firestore)
+console.log("Email", auth.currentUser)
 const App:React.FC = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    console.log("Firestore", firestore)
+    console.log("Auth", auth)
+    dispatch(updateFirestore(firestore))
+    dispatch(updateAuth(auth))
+  }, [])
+
   return (
     <BrowserRouter>
       <div className="container-fluid p-0 App">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import Pages from '../Pages'
 
@@ -7,18 +7,19 @@ import 'firebase/auth'
 import 'firebase/firestore'
 import 'firebase/analytics'
 
-import FirebaseConfig from '../../services/firebase/FirebaseConfig';
-
-const auth = firebase.auth()
-const firestore = firebase.firestore();
-const analytics = firebase.analytics();
+import { useSelector } from 'react-redux'
+import { FirebaseState } from '../../redux/reducers/FirebaseReducers'
+import { RootState } from '../../redux/reducers'
 
 const LoginPage: React.FC = () => {
     const history = useHistory()
+    const {auth} = useSelector<RootState, FirebaseState>((state)=>state.firebase)
 
     const loginByGoogle = () => {
+        console.log()
         const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider);
+        if(auth) auth.signInWithPopup(provider);
+        else firebase.auth().signInWithPopup(provider);
     }
 
     return <div className="d-flex p-5">
@@ -31,7 +32,7 @@ const LoginPage: React.FC = () => {
                 <input className="form-control mb-3" placeholder="Username/Email" />
                 <input className="form-control mb-3" type="password" placeholder="Password" />
                 <input type="submit" className="btn btn-success" />
-                <button className="ml-3 btn btn-light shadow" onClick={loginByGoogle}>Login by Google</button>
+                <span className="ml-3 btn btn-light shadow" onClick={loginByGoogle}>Login by Google</span>
             </form>
             <div className="mt-3">
                 <span>
